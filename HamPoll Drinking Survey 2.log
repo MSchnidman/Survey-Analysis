@@ -1,0 +1,412 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  H:\HamPoll Drinking Survey 2.log
+  log type:  text
+ opened on:   4 Jan 2014, 15:58:58
+
+. set more off
+
+. probit AlcoholUseBinary class1 class2 class3 gender2 Arts Humanities Science Math DarkSide GraySide Minority MinFem Q6 Q7_1 Q7_2 Q7_3, robust
+
+Iteration 0:   log pseudolikelihood = -245.53635  
+Iteration 1:   log pseudolikelihood = -181.53671  
+Iteration 2:   log pseudolikelihood = -179.15349  
+Iteration 3:   log pseudolikelihood = -179.15149  
+Iteration 4:   log pseudolikelihood = -179.15149  
+
+Probit regression                                 Number of obs   =        474
+                                                  Wald chi2(16)   =      90.72
+                                                  Prob > chi2     =     0.0000
+Log pseudolikelihood = -179.15149                 Pseudo R2       =     0.2704
+
+----------------------------------------------------------------------------------
+                 |               Robust
+AlcoholUseBinary |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------+----------------------------------------------------------------
+          class1 |   1.320113   .2910585     4.54   0.000     .7496485    1.890577
+          class2 |   1.123237   .2300755     4.88   0.000     .6722974    1.574177
+          class3 |   .6464756   .1898504     3.41   0.001     .2743757    1.018575
+         gender2 |   .0954485   .1905015     0.50   0.616    -.2779275    .4688245
+            Arts |  -.4335774   .3021476    -1.43   0.151    -1.025776     .158621
+      Humanities |  -.1209422   .2083182    -0.58   0.562    -.5292384    .2873539
+         Science |  -.2002917   .1691141    -1.18   0.236    -.5317494    .1311659
+            Math |   .2458343   .2527917     0.97   0.331    -.2496284    .7412969
+        DarkSide |  -.3514018   .1727555    -2.03   0.042    -.6899963   -.0128073
+        GraySide |  -.4426808   .2178628    -2.03   0.042     -.869684   -.0156775
+        Minority |     .03527   .3033735     0.12   0.907    -.5593311    .6298711
+          MinFem |  -.1997103   .3625305    -0.55   0.582    -.9102569    .5108363
+              Q6 |  -1.254647   .1877258    -6.68   0.000    -1.622583   -.8867112
+            Q7_1 |  -.1554133   .1765712    -0.88   0.379    -.5014864    .1906599
+            Q7_2 |   .2620573    .167668     1.56   0.118    -.0665661    .5906806
+            Q7_3 |  -.3629962   .1936669    -1.87   0.061    -.7425763     .016584
+           _cons |   2.644671   .3608392     7.33   0.000     1.937439    3.351902
+----------------------------------------------------------------------------------
+
+. margins, dydx (class1 class2 class3 gender2 Arts Humanities Science Math DarkSide GraySide Minority MinFem Q6 Q7_1 Q7_2 Q7_3)
+
+Average marginal effects                          Number of obs   =        474
+Model VCE    : Robust
+
+Expression   : Pr(AlcoholUseBinary), predict()
+dy/dx w.r.t. : class1 class2 class3 gender2 Arts Humanities Science Math DarkSide GraySide Minority MinFem Q6 Q7_1 Q7_2 Q7_3
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |      dy/dx   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      class1 |   .2832048   .0523078     5.41   0.000     .1806834    .3857262
+      class2 |    .240969   .0453179     5.32   0.000     .1521476    .3297903
+      class3 |   .1386889   .0393739     3.52   0.000     .0615175    .2158603
+     gender2 |   .0204766   .0407826     0.50   0.616    -.0594558    .1004091
+        Arts |  -.0930157   .0644738    -1.44   0.149    -.2193821    .0333507
+  Humanities |  -.0259458   .0446489    -0.58   0.561    -.1134561    .0615644
+     Science |  -.0429687   .0363028    -1.18   0.237    -.1141209    .0281834
+        Math |    .052739   .0545399     0.97   0.334    -.0541572    .1596353
+    DarkSide |  -.0753865   .0365081    -2.06   0.039    -.1469411   -.0038319
+    GraySide |  -.0949687   .0468308    -2.03   0.043    -.1867553    -.003182
+    Minority |   .0075665    .065079     0.12   0.907    -.1199859    .1351189
+      MinFem |   -.042844   .0777214    -0.55   0.581    -.1951752    .1094872
+          Q6 |  -.2691604   .0327213    -8.23   0.000     -.333293   -.2050278
+        Q7_1 |  -.0333409   .0379382    -0.88   0.379    -.1076985    .0410167
+        Q7_2 |   .0562193   .0355981     1.58   0.114    -.0135516    .1259903
+        Q7_3 |  -.0778738   .0409956    -1.90   0.057    -.1582238    .0024761
+------------------------------------------------------------------------------
+
+. oprobit Q13 class1 class2 class3 gender2 Arts Humanities Science Math DarkSide GraySide Minority MinFem Q6 Q7_1 Q7_2 Q7_3, robust
+
+Iteration 0:   log pseudolikelihood = -752.00738  
+Iteration 1:   log pseudolikelihood = -661.09623  
+Iteration 2:   log pseudolikelihood = -660.58215  
+Iteration 3:   log pseudolikelihood = -660.58191  
+Iteration 4:   log pseudolikelihood = -660.58191  
+
+Ordered probit regression                         Number of obs   =        474
+                                                  Wald chi2(16)   =     144.25
+                                                  Prob > chi2     =     0.0000
+Log pseudolikelihood = -660.58191                 Pseudo R2       =     0.1216
+
+------------------------------------------------------------------------------
+             |               Robust
+         Q13 |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      class1 |   1.304262   .1645852     7.92   0.000     .9816804    1.626843
+      class2 |   .8873444   .1455656     6.10   0.000     .6020411    1.172648
+      class3 |   .5401533   .1362078     3.97   0.000     .2731909    .8071158
+     gender2 |  -.2504931   .1205277    -2.08   0.038    -.4867231   -.0142631
+        Arts |  -.1522107   .2503887    -0.61   0.543    -.6429636    .3385421
+  Humanities |  -.0103952   .1294093    -0.08   0.936    -.2640328    .2432424
+     Science |  -.0672621   .1130409    -0.60   0.552    -.2888181    .1542939
+        Math |   .0959755   .1738777     0.55   0.581    -.2448186    .4367696
+    DarkSide |  -.1175241   .1158878    -1.01   0.311    -.3446601    .1096119
+    GraySide |  -.2006793   .1419776    -1.41   0.158    -.4789502    .0775916
+    Minority |  -.1479404   .2447747    -0.60   0.546    -.6276901    .3318093
+      MinFem |   .1398893   .2782348     0.50   0.615    -.4054409    .6852194
+          Q6 |  -.9137773   .1248431    -7.32   0.000    -1.158465   -.6690893
+        Q7_1 |  -.1692706    .118942    -1.42   0.155    -.4023926    .0638515
+        Q7_2 |   .0815314   .1110358     0.73   0.463    -.1360948    .2991576
+        Q7_3 |  -.3458119   .1592997    -2.17   0.030    -.6580335   -.0335903
+-------------+----------------------------------------------------------------
+       /cut1 |  -2.451617   .2707099                     -2.982198   -1.921035
+       /cut2 |   -1.64604   .2615206                     -2.158611   -1.133469
+       /cut3 |  -.5435466   .2458423                     -1.025389   -.0617045
+       /cut4 |   .2766061   .2406404                     -.1950403    .7482526
+       /cut5 |   .9416046   .2582603                      .4354237    1.447785
+       /cut6 |   1.282903   .2778039                      .7384178    1.827389
+       /cut7 |   1.628899    .311403                       1.01856    2.239237
+------------------------------------------------------------------------------
+
+. margins, dydx (Q13 class1 class2 class3 gender2 Arts Humanities Science Math DarkSide GraySide Minority MinFem Q6 Q7_1 Q7_2 Q7_3)
+'Q13' not found in list of covariates
+r(322);
+
+end of do-file
+
+r(322);
+
+. do "H:\OCC DO.do"
+
+. reg Take_Rate Code2 Weekday1 Weekday2 Weekday3 Weekday5 TimeyWimey1 TimeyWimey2 TimeyWimey3 TimeyWimey4 TimeyWimey5 TimeyWimey6 TimeyWimey7 TimeyWimey8 TimeyWimey9 TimeyWimey10 TimeyWimey12 TimeyWimey13 TimeyWimey14
+>  TimeyWimey15 SemesterWeek1 SemesterWeek2 SemesterWeek3 SemesterWeek4 SemesterWeek5 SemesterWeek6 SemesterWeek7 SemesterWeek8 SemesterWeek9 SemesterWeek10 SemesterWeek11 SemesterWeek12 SemesterWeek13 SemesterWeek15 
+> Slots_Available if Code3 != 1, robust beta
+Code3 not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. use "H:\OCC Calendar Analysis.dta", clear
+
+. do "H:\OCC DO.do"
+
+. reg Take_Rate Code2 Weekday1 Weekday2 Weekday3 Weekday5 TimeyWimey1 TimeyWimey2 TimeyWimey3 TimeyWimey4 TimeyWimey5 TimeyWimey6 TimeyWimey7 TimeyWimey8 TimeyWimey9 TimeyWimey10 TimeyWimey12 TimeyWimey13 TimeyWimey14
+>  TimeyWimey15 SemesterWeek1 SemesterWeek2 SemesterWeek3 SemesterWeek4 SemesterWeek5 SemesterWeek6 SemesterWeek7 SemesterWeek8 SemesterWeek9 SemesterWeek10 SemesterWeek11 SemesterWeek12 SemesterWeek13 SemesterWeek15 
+> Slots_Available if Code3 != 1, robust beta
+note: TimeyWimey1 omitted because of collinearity
+note: TimeyWimey2 omitted because of collinearity
+note: SemesterWeek1 omitted because of collinearity
+
+Linear regression                                      Number of obs =     838
+                                                       F( 30,   806) =       .
+                                                       Prob > F      =       .
+                                                       R-squared     =  0.2697
+                                                       Root MSE      =  .42474
+
+---------------------------------------------------------------------------------
+                |               Robust
+      Take_Rate |      Coef.   Std. Err.      t    P>|t|                     Beta
+----------------+----------------------------------------------------------------
+          Code2 |    .194838   .0308766     6.31   0.000                 .1995602
+       Weekday1 |  -.0765705   .0426676    -1.79   0.073                -.0666139
+       Weekday2 |   .0054622   .0426601     0.13   0.898                 .0046746
+       Weekday3 |  -.1310576   .0612088    -2.14   0.033                -.0852432
+       Weekday5 |  -.1888764    .048483    -3.90   0.000                 -.147766
+    TimeyWimey1 |          0  (omitted)                                         .
+    TimeyWimey2 |          0  (omitted)                                         .
+    TimeyWimey3 |   .4703316   .4846996     0.97   0.332                 .0576301
+    TimeyWimey4 |  -.1784804    .080439    -2.22   0.027                -.0771326
+    TimeyWimey5 |  -.1286485   .0803031    -1.60   0.110                -.0555971
+    TimeyWimey6 |   .9625849   .0715885    13.45   0.000                 .0681778
+    TimeyWimey7 |  -.0844116   .0852644    -0.99   0.322                -.0351141
+    TimeyWimey8 |  -.1116687    .087993    -1.27   0.205                -.0470641
+    TimeyWimey9 |  -.0053929   .0556622    -0.10   0.923                -.0038619
+   TimeyWimey10 |  -.0179767   .0536104    -0.34   0.737                -.0128733
+   TimeyWimey12 |   .0151317   .0541257     0.28   0.780                 .0107979
+   TimeyWimey13 |   .1008314   .0560358     1.80   0.072                 .0679203
+   TimeyWimey14 |   .1520737   .0536778     2.83   0.005                 .1011402
+   TimeyWimey15 |   .2026789   .1460428     1.39   0.166                 .0320227
+  SemesterWeek1 |          0  (omitted)                                         .
+  SemesterWeek2 |  -.6330394   .0794551    -7.97   0.000                -.3161149
+  SemesterWeek3 |  -.4502401   .0811592    -5.55   0.000                -.2417755
+  SemesterWeek4 |  -.2561342   .0727893    -3.52   0.000                -.1375421
+  SemesterWeek5 |  -.1513806   .0688971    -2.20   0.028                -.0812902
+  SemesterWeek6 |  -.4138028   .0696395    -5.94   0.000                -.2188771
+  SemesterWeek7 |  -.7072576   .0658944   -10.73   0.000                -.3682819
+  SemesterWeek8 |   -.348301   .0752504    -4.63   0.000                 -.187035
+  SemesterWeek9 |  -.4216916   .0683184    -6.17   0.000                -.2346394
+ SemesterWeek10 |  -.3516183   .0657389    -5.35   0.000                -.1969758
+ SemesterWeek11 |  -.4427356   .0672509    -6.58   0.000                -.2513134
+ SemesterWeek12 |  -.4199638   .0756511    -5.55   0.000                -.2221359
+ SemesterWeek13 |    .085342   .0715201     1.19   0.233                 .0474864
+ SemesterWeek15 |  -.1319106   .1643725    -0.80   0.422                -.0321515
+Slots_Available |  -.0948028   .0250604    -3.78   0.000                -.1294949
+          _cons |   .9319177   .0898593    10.37   0.000                        .
+---------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "H:\OCC DO.do"
+
+. tab Month Day Date Year Week Normalized_Time Semester Semester_Code 
+too many variables specified
+r(103);
+
+end of do-file
+
+r(103);
+
+. do "H:\OCC DO.do"
+
+. tab Month 
+
+      Month |      Freq.     Percent        Cum.
+------------+-----------------------------------
+      April |        142       11.10       11.10
+   December |        144       11.26       22.36
+   February |        131       10.24       32.60
+    January |         34        2.66       35.26
+      March |         69        5.39       40.66
+        May |         65        5.08       45.74
+   November |        212       16.58       62.31
+    October |        273       21.34       83.66
+  September |        209       16.34      100.00
+------------+-----------------------------------
+      Total |      1,279      100.00
+
+. tab Day 
+
+        Day |      Freq.     Percent        Cum.
+------------+-----------------------------------
+     Monday |        280       21.89       21.89
+     Sunday |        285       22.28       44.18
+   Thursday |        148       11.57       55.75
+    Tuesday |        312       24.39       80.14
+  Wednesday |        254       19.86      100.00
+------------+-----------------------------------
+      Total |      1,279      100.00
+
+. tab Date 
+
+       Date |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         37        2.89        2.89
+          2 |         40        3.13        6.02
+          3 |         56        4.38       10.40
+          4 |         48        3.75       14.15
+          5 |         50        3.91       18.06
+          6 |         46        3.60       21.66
+          7 |         48        3.75       25.41
+          8 |         49        3.83       29.24
+          9 |         57        4.46       33.70
+         10 |         68        5.32       39.01
+         11 |         60        4.69       43.71
+         12 |         67        5.24       48.94
+         13 |         49        3.83       52.78
+         14 |         34        2.66       55.43
+         15 |         31        2.42       57.86
+         16 |         44        3.44       61.30
+         17 |         47        3.67       64.97
+         18 |         36        2.81       67.79
+         19 |         24        1.88       69.66
+         20 |         18        1.41       71.07
+         21 |         31        2.42       73.49
+         22 |         32        2.50       76.00
+         23 |         38        2.97       78.97
+         24 |         38        2.97       81.94
+         25 |         26        2.03       83.97
+         26 |         22        1.72       85.69
+         27 |         35        2.74       88.43
+         28 |         38        2.97       91.40
+         29 |         44        3.44       94.84
+         30 |         47        3.67       98.51
+         31 |         19        1.49      100.00
+------------+-----------------------------------
+      Total |      1,279      100.00
+
+. tab Year 
+
+       Year |      Freq.     Percent        Cum.
+------------+-----------------------------------
+       2012 |        396       30.96       30.96
+       2013 |        883       69.04      100.00
+------------+-----------------------------------
+      Total |      1,279      100.00
+
+. tab Week 
+
+       Week |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         13        1.02        1.02
+          2 |         87        6.80        7.82
+          3 |         95        7.43       15.25
+          4 |         95        7.43       22.67
+          5 |         94        7.35       30.02
+          6 |         93        7.27       37.29
+          7 |         89        6.96       44.25
+          8 |         93        7.27       51.52
+          9 |         98        7.66       59.19
+         10 |         99        7.74       66.93
+         11 |        103        8.05       74.98
+         12 |         91        7.11       82.10
+         13 |        104        8.13       90.23
+         14 |        107        8.37       98.59
+         15 |         18        1.41      100.00
+------------+-----------------------------------
+      Total |      1,279      100.00
+
+. tab Normalized_Time 
+
+Normalized_ |
+       Time |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          8 |          2        0.16        0.16
+          9 |          2        0.16        0.31
+         10 |         28        2.19        2.50
+         11 |         65        5.08        7.58
+         12 |         42        3.28       10.87
+         13 |          2        0.16       11.02
+         14 |         36        2.81       13.84
+         15 |         51        3.99       17.83
+         16 |        184       14.39       32.21
+         17 |        183       14.31       46.52
+         18 |        185       14.46       60.99
+         19 |        184       14.39       75.37
+         20 |        156       12.20       87.57
+         21 |        154       12.04       99.61
+         22 |          5        0.39      100.00
+------------+-----------------------------------
+      Total |      1,279      100.00
+
+. tab Semester 
+
+   Semester |      Freq.     Percent        Cum.
+------------+-----------------------------------
+     Autumn |        838       65.52       65.52
+     Spring |        441       34.48      100.00
+------------+-----------------------------------
+      Total |      1,279      100.00
+
+. tab Semester_Code 
+
+Semester_Co |
+         de |      Freq.     Percent        Cum.
+------------+-----------------------------------
+     FA2012 |        396       30.96       30.96
+     FA2013 |        442       34.56       65.52
+     SP2013 |        441       34.48      100.00
+------------+-----------------------------------
+      Total |      1,279      100.00
+
+. reg Take_Rate Code2 Weekday1 Weekday2 Weekday3 Weekday5 TimeyWimey1 TimeyWimey2 TimeyWimey3 TimeyWimey4 TimeyWimey5 TimeyWimey6 TimeyWimey7 TimeyWimey8 TimeyWimey9 TimeyWimey10 TimeyWimey12 TimeyWimey13 TimeyWimey14
+>  TimeyWimey15 SemesterWeek1 SemesterWeek2 SemesterWeek3 SemesterWeek4 SemesterWeek5 SemesterWeek6 SemesterWeek7 SemesterWeek8 SemesterWeek9 SemesterWeek10 SemesterWeek11 SemesterWeek12 SemesterWeek13 SemesterWeek15 
+> Slots_Available if Code3 != 1, robust beta
+note: TimeyWimey1 omitted because of collinearity
+note: TimeyWimey2 omitted because of collinearity
+note: SemesterWeek1 omitted because of collinearity
+
+Linear regression                                      Number of obs =     838
+                                                       F( 30,   806) =       .
+                                                       Prob > F      =       .
+                                                       R-squared     =  0.2697
+                                                       Root MSE      =  .42474
+
+---------------------------------------------------------------------------------
+                |               Robust
+      Take_Rate |      Coef.   Std. Err.      t    P>|t|                     Beta
+----------------+----------------------------------------------------------------
+          Code2 |    .194838   .0308766     6.31   0.000                 .1995602
+       Weekday1 |  -.0765705   .0426676    -1.79   0.073                -.0666139
+       Weekday2 |   .0054622   .0426601     0.13   0.898                 .0046746
+       Weekday3 |  -.1310576   .0612088    -2.14   0.033                -.0852432
+       Weekday5 |  -.1888764    .048483    -3.90   0.000                 -.147766
+    TimeyWimey1 |          0  (omitted)                                         .
+    TimeyWimey2 |          0  (omitted)                                         .
+    TimeyWimey3 |   .4703316   .4846996     0.97   0.332                 .0576301
+    TimeyWimey4 |  -.1784804    .080439    -2.22   0.027                -.0771326
+    TimeyWimey5 |  -.1286485   .0803031    -1.60   0.110                -.0555971
+    TimeyWimey6 |   .9625849   .0715885    13.45   0.000                 .0681778
+    TimeyWimey7 |  -.0844116   .0852644    -0.99   0.322                -.0351141
+    TimeyWimey8 |  -.1116687    .087993    -1.27   0.205                -.0470641
+    TimeyWimey9 |  -.0053929   .0556622    -0.10   0.923                -.0038619
+   TimeyWimey10 |  -.0179767   .0536104    -0.34   0.737                -.0128733
+   TimeyWimey12 |   .0151317   .0541257     0.28   0.780                 .0107979
+   TimeyWimey13 |   .1008314   .0560358     1.80   0.072                 .0679203
+   TimeyWimey14 |   .1520737   .0536778     2.83   0.005                 .1011402
+   TimeyWimey15 |   .2026789   .1460428     1.39   0.166                 .0320227
+  SemesterWeek1 |          0  (omitted)                                         .
+  SemesterWeek2 |  -.6330394   .0794551    -7.97   0.000                -.3161149
+  SemesterWeek3 |  -.4502401   .0811592    -5.55   0.000                -.2417755
+  SemesterWeek4 |  -.2561342   .0727893    -3.52   0.000                -.1375421
+  SemesterWeek5 |  -.1513806   .0688971    -2.20   0.028                -.0812902
+  SemesterWeek6 |  -.4138028   .0696395    -5.94   0.000                -.2188771
+  SemesterWeek7 |  -.7072576   .0658944   -10.73   0.000                -.3682819
+  SemesterWeek8 |   -.348301   .0752504    -4.63   0.000                 -.187035
+  SemesterWeek9 |  -.4216916   .0683184    -6.17   0.000                -.2346394
+ SemesterWeek10 |  -.3516183   .0657389    -5.35   0.000                -.1969758
+ SemesterWeek11 |  -.4427356   .0672509    -6.58   0.000                -.2513134
+ SemesterWeek12 |  -.4199638   .0756511    -5.55   0.000                -.2221359
+ SemesterWeek13 |    .085342   .0715201     1.19   0.233                 .0474864
+ SemesterWeek15 |  -.1319106   .1643725    -0.80   0.422                -.0321515
+Slots_Available |  -.0948028   .0250604    -3.78   0.000                -.1294949
+          _cons |   .9319177   .0898593    10.37   0.000                        .
+---------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "H:\OCC DO.do"
+
+. use "H:\OCC Calendar Analysis.dta", clear
+
+. capture log close
