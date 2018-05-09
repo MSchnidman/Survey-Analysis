@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  H:\PBlackout.log
+  log type:  text
+ opened on:  16 Nov 2013, 17:35:12
+
+. reg Drinking year1 year2 year3 sex2 Party Blackout, robust
+variable Drinking not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "H:\Blackout DO.do"
+
+. use "H:\Blackout Survey.dta", clear
+
+. capture log close
